@@ -1,4 +1,3 @@
-
 KeyEventTrigger = new Array();
 var EventTypes = {
 	KEY_DOWN : 'keydown', 
@@ -6,22 +5,21 @@ var EventTypes = {
 	KEY_UP : 'keyup'
 };
 
-function addKeyEventTrigger(type, condition, action){
-	if(!(type == EventTypes.KEY_UP || type == EventTypes.KEY_PRESS || type == EventTypes.KEY_DOWN)) 
-		throw new Error("Le type de l'évènement n'est pas un type KeyboardEvent");
+function addKeyEventTrigger(keyEventType, condition, actionOnTrigger){
+	if(!(keyEventType == EventTypes.KEY_UP || keyEventType == EventTypes.KEY_PRESS || keyEventType == EventTypes.KEY_DOWN)) 
+		throw new Error("The event type isn't a KeyboardEvent type.");
 
-	if(typeof KeyEventTrigger[type] == "undefined") 
-		KeyEventTrigger[type] = new Array();
+	if(typeof KeyEventTrigger[keyEventType] == "undefined") 
+		KeyEventTrigger[keyEventType] = new Array();
 
-	KeyEventTrigger[type].push({
+	KeyEventTrigger[keyEventType].push({
 		cond : condition,
-		func : action
+		func : actionOnTrigger
 	});
 }
 
 
 function onKeyHandler(event){
-	console.log(event);
 	var eventType = event.type;
 	for(i in KeyEventTrigger[eventType]){
 		var ket = KeyEventTrigger[eventType][i];
@@ -31,21 +29,3 @@ function onKeyHandler(event){
 		}
 	}
 }
-
-document.body.onload = init();
-window.onkeydown = onKeyHandler;
-window.onkeyup = onKeyHandler;
-
-addKeyEventTrigger(EventTypes.KEY_DOWN,function(event){
-	return event.ctrlKey && event.which == 70;
-},function(e){
-	e.preventDefault();
-	clearFields();
-});
-
-addKeyEventTrigger(EventTypes.KEY_UP,function(event){
-	return event.ctrlKey && event.which == 86 && event.target.id == "requete";
-},function(e){
-	e.preventDefault();
-	minifier(1)
-});
