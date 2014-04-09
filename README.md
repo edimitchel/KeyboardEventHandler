@@ -1,7 +1,7 @@
 KeyboardEventHandler
 ====================
 
-Small tool for simplify management of keyboard event.
+Small tool to simplify management of keyboard event.
 
 
 How to use
@@ -35,9 +35,11 @@ addKeyEventTrigger(
 	},function(e){
 		// Prevent the default behavior to do what I want
 		e.preventDefault();
-		
+
 		// Refresh my page
 		window.location.reload();
+
+		return false;
 	}
 );
 ```

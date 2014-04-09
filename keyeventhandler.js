@@ -6,7 +6,9 @@ var EventTypes = {
 };
 
 function addKeyEventTrigger(keyEventType, condition, actionOnTrigger){
-	if(!(keyEventType == EventTypes.KEY_UP || keyEventType == EventTypes.KEY_PRESS || keyEventType == EventTypes.KEY_DOWN)) 
+	if(!(keyEventType == EventTypes.KEY_UP 
+		|| keyEventType == EventTypes.KEY_PRESS 
+		|| keyEventType == EventTypes.KEY_DOWN)) 
 		throw new Error("The event type isn't a KeyboardEvent type.");
 
 	if(typeof KeyEventTrigger[keyEventType] == "undefined") 
