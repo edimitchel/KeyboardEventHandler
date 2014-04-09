@@ -7,6 +7,13 @@ Small tool for simplify management of keyboard event.
 How to use
 ----------
 
+Include it!
+
+```
+<script src="keyeventhandler.js"></script>
+```
+
+
 The usage is simple. Just call the function *addKeyEventTrigger* :
 
 ```
@@ -21,7 +28,6 @@ addKeyEventTrigger(EventType keyEventType,Function condition, Function actionOnT
 For example, I wish to refresh the page when I press Ctrl+R and my cursor is in my form with id "form".
 
 ```
-
 addKeyEventTrigger(
 	EventTypes.KEY_UP,
 	function(event){
@@ -34,5 +40,4 @@ addKeyEventTrigger(
 		window.location.reload();
 	}
 );
-
 ```
