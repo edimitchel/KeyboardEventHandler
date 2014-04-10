@@ -1,8 +1,8 @@
 KeyEventTrigger = new Array();
 var EventTypes = {
-	KEY_DOWN : 'keydown', 
-	KEY_PRESS : 'keypress', 
-	KEY_UP : 'keyup'
+	KEY_DOWN 	: 'keydown', 
+	KEY_PRESS 	: 'keypress', 
+	KEY_UP 		: 'keyup'
 };
 
 function addKeyEventTrigger(keyEventType, condition, actionOnTrigger){
@@ -21,7 +21,7 @@ function addKeyEventTrigger(keyEventType, condition, actionOnTrigger){
 }
 
 
-function onKeyHandler(event){
+function onKeyEvent(event){
 	var eventType = event.type;
 	for(i in KeyEventTrigger[eventType]){
 		var ket = KeyEventTrigger[eventType][i];
