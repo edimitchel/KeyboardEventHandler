@@ -14,7 +14,7 @@ Include it!
 ```
 
 
-The usage is simple. Just call the function *addKeyEventTrigger* :
+The usage is simple. Just call the function *addKeyEventTrigger* and attach the *onKeyEvent* function on the keyboard event listener:
 
 ```
 /*
@@ -23,6 +23,9 @@ The usage is simple. Just call the function *addKeyEventTrigger* :
 	@actionOnTrigger 	: Action performed when the event is triggered
 */
 addKeyEventTrigger(EventType keyEventType,Function condition, Function actionOnTrigger);
+
+// Attach the function to the Keyboard Event Listener
+window.onkeydown = onKeyEvent;
 ```
 
 For example, I wish to refresh the page when I press Ctrl+R and my cursor is in my form with id "form".
@@ -42,4 +45,8 @@ addKeyEventTrigger(
 		return false;
 	}
 );
+
+window.onkeydown = onKeyEvent;
 ```
+
+
