@@ -1,15 +1,17 @@
 KeyEventTrigger = new Array();
-var EventTypes = {
+var KeyEvents = {
 	KEY_DOWN 	: 'keydown', 
 	KEY_PRESS 	: 'keypress', 
 	KEY_UP 		: 'keyup'
 };
 
 function addKeyEventTrigger(keyEventType, condition, actionOnTrigger){
-	if(!(keyEventType == EventTypes.KEY_UP 
-		|| keyEventType == EventTypes.KEY_PRESS 
-		|| keyEventType == EventTypes.KEY_DOWN)) 
-		throw new Error("The event type isn't a KeyboardEvent type.");
+	for(var prop in KeyEvents) {
+	    if(!KeyEvents.hasOwnProperty(prop) && KeyEvents[prop] === keyEventType) {
+	    	throw new Error("The event type isn't a KeyboardEvent type.");
+		return;
+	    }			
+	}
 
 	if(typeof KeyEventTrigger[keyEventType] == "undefined") 
 		KeyEventTrigger[keyEventType] = new Array();
