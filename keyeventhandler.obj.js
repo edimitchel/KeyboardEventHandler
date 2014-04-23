@@ -27,10 +27,9 @@ KeyEventHandler.prototype.addKeyEventByObj = function(ke) {
 KeyEventHandler.prototype.onKeyEvent = function(event) {
 	var eventType = event.type;
 	var arrEvents = instance_KEH.KETriggers[eventType] || new Array();
-	//console.log(instance_KEH.KETriggers);
+	
 	for(i in arrEvents){
 		var ket = arrEvents[i];
-		console.log(ket);
 		instance_KEH.log(ket);
 		if(ket.condition(event) === true){
 			ket.onPerformed(event);
@@ -64,7 +63,6 @@ function KeyEvent(_type, _condition, _actionPerformed){
 	this.condition = _condition;
 	this.action = _actionPerformed;
 	this.result = new Object();
-	var bool = true;
 	for(var prop in KeyEvents) {
 	    if(!KeyEvents.hasOwnProperty(prop) && KeyEvents[prop] === this.type) {
 	    	throw new Error("The event type isn't a KeyboardEvent type.");
